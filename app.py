@@ -49,7 +49,6 @@ if st.session_state.get("df") is not None:
 if st.session_state.get("df") is not None:
     #data for histogram
     df = st.session_state.df
-    hour_to_filter = st.slider("hour",1,23,10, key='slider')
     hist_df = pd.DataFrame(df['date/time'].dt.hour.value_counts()).reset_index()
     plt = px.histogram(hist_df,x='date/time', y='count', template='simple_white', nbins=24, marginal='box',
     height=600) #hover_data=hist_df.columns)
